@@ -1,5 +1,5 @@
 export default function klass(props) {
-  return function(Parent) {
+  return function(Parent = Object) {
     var Child, F, i
 
     // novo constructor
@@ -15,7 +15,6 @@ export default function klass(props) {
 
     // herança prototipica
     // funcao temporaria que herda todos os prototipos de parent
-    Parent = Parent || Object
     F = function() {}
     F.prototype = Parent.prototype
 
