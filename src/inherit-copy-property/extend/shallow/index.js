@@ -1,7 +1,5 @@
 export default function extendShallow(parent, child = {}) {
-  let index
-
-  for (index in parent) {
+  for (let index in parent) {
     if (parent.hasOwnProperty(index)) {
       child[index] = parent[index]
     }
