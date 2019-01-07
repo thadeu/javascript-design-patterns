@@ -6,7 +6,12 @@ function Product(name, price) {
   return this
 }
 
+function Methods() {
+  this.methods = "many methods"
+}
+
 Product.extend = function(context, props) {
+  Methods.apply(context, props)
   return this.apply(context, props)
 }
 
@@ -24,6 +29,7 @@ it("food context", () => {
   const instance = new Food("pizza", "$ 5.00")
   expect(instance.name).toBe("pizza")
   expect(instance.category).toBe("food")
+  expect(instance.methods).toBe("many methods")
 })
 
 function Drink(name, price) {
@@ -31,8 +37,9 @@ function Drink(name, price) {
   this.category = "drink"
 }
 
-it("drink#1 context", () => {
+it("drink context", () => {
   const instance = new Drink("beer", "$ 10.00")
   expect(instance.name).toBe("beer")
   expect(instance.category).toBe("drink")
+  expect(instance.methods).toBe("many methods")
 })
